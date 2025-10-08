@@ -1,11 +1,12 @@
 import { NavLink } from "react-router";
 import AppCard from "../Components/AppCard";
 import Container from "../Components/Container";
+import Loader from "../Components/Loader";
 import PageTitle from "../Components/PageTitle";
 import useLoadAppData from "../Hooks/useLoadAppData";
 
 const HomeApps = () => {
-  const [appData] = useLoadAppData();
+  const [appData, loading] = useLoadAppData();
   const sliceAppData = appData.slice(0, 8);
 
   return (
@@ -15,11 +16,15 @@ const HomeApps = () => {
         subTitle={"Explore All Trending Apps on the Market developed by us"}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {sliceAppData.map((appData) => (
-          <AppCard key={appData.id} appData={appData} />
-        ))}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {sliceAppData.map((appData) => (
+            <AppCard key={appData.id} appData={appData} />
+          ))}
+        </div>
+      )}
 
       <div className="text-center mt-10 mb-20">
         <NavLink

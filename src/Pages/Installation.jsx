@@ -2,16 +2,19 @@ import { useEffect, useState } from "react";
 import { FaArrowDown } from "react-icons/fa6";
 import Container from "../Components/Container";
 import InstallCard from "../Components/InstallCard";
+import Loader from "../Components/Loader";
 import PageTitle from "../Components/PageTitle";
 import useLoadAppData from "../Hooks/useLoadAppData";
 import { getDataFromLs } from "../utilities/LocalStorage";
 
 const Installation = () => {
-  const [appData] = useLoadAppData();
+  const [appData, loader] = useLoadAppData();
   const [installedApp, setInstalledApp] = useState([]);
   useEffect(() => {
     const storedData = getDataFromLs();
-    const filteredData = appData.filter((data) => storedData.includes(data.id));
+    const filteredData = appData?.filter((data) =>
+      storedData.includes(data.id)
+    );
     setInstalledApp(filteredData);
   }, [appData]);
 
@@ -44,14 +47,18 @@ const Installation = () => {
           </div>
         </div>
         <div>
-          {installedApp.map((app) => (
-            <InstallCard
-              key={app.id}
-              appData={app}
-              installedApp={installedApp}
-              setInstalledApp={setInstalledApp}
-            />
-          ))}
+          {loader ? (
+            <Loader />
+          ) : (
+            installedApp.map((app) => (
+              <InstallCard
+                key={app.id}
+                appData={app}
+                installedApp={installedApp}
+                setInstalledApp={setInstalledApp}
+              />
+            ))
+          )}
         </div>
       </div>
     </Container>
