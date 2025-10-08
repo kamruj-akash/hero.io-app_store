@@ -1,3 +1,4 @@
+import { FaSearch } from "react-icons/fa";
 import AppCard from "../Components/AppCard";
 import Container from "../Components/Container";
 import PageTitle from "../Components/PageTitle";
@@ -14,6 +15,24 @@ const AllApps = () => {
         }
       />
 
+      {/* all apps & search app */}
+      <div className="mb-5 flex flex-col gap-5 justify-between items-center md:flex-row">
+        <h1 className="font-semibold text-2xl text-[#001931]">
+          ({appData.length}) Apps Found
+        </h1>
+        <div className="flex border ps-4 rounded-md border-[#D2D2D2] items-center justify-center min-w-[400px]  text-[#627382]">
+          <FaSearch />
+          <input
+            onChange={(e) => console.log(e.target.value)}
+            className="w-full min-h-[44px] ps-2"
+            type="text"
+            name="search"
+            placeholder="Search App"
+          />
+        </div>
+      </div>
+
+      {/* map all app */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-20">
         {appData.map((appData) => (
           <AppCard key={appData.id} appData={appData} />

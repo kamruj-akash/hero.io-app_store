@@ -1,13 +1,20 @@
 import { FaDownload, FaStar } from "react-icons/fa6";
+import { NavLink } from "react-router";
 
 const AppCard = ({ appData }) => {
-  const { image, title, ratingAvg, downloads } = appData;
+  const { id, image, title, ratingAvg, downloads } = appData;
 
   return (
-    <div className="bg-white p-5">
-      <div className="min-h-[316px] max-w-[316px] rounded-xl bg-gray-200 overflow-hidden">
-        <img className="min-w-full min-h-full" src={image} alt={title} />
-      </div>
+    <NavLink
+      to={`/appDetails/${id}`}
+      className="bg-white p-5 cursor-pointer transition duration-100 hover:shadow-gray-200 hover:shadow-xl hover:translate-y-0.5"
+    >
+      <img
+        className="max-h-[316px] min-h-[250px] w-full rounded-xl"
+        src={image}
+        alt={title}
+      />
+
       <h1 className="text-xl font-medium text-[#001931] mt-5 mb-1">{title}</h1>
       <div className="flex justify-between">
         <p
@@ -23,7 +30,7 @@ const AppCard = ({ appData }) => {
           <FaStar /> {ratingAvg}
         </p>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

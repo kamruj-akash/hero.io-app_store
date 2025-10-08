@@ -5,7 +5,7 @@ import Container from "./Container";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-[#001931] text-white rounded p-10">
+      <footer className="bg-[#001931] text-white  p-10">
         <Container>
           <nav className="flex justify-between items-center pb-3 border-[#2d4256] border-b-1 mb-8">
             <div>
