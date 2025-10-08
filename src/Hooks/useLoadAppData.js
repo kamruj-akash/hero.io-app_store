@@ -9,8 +9,8 @@ const useLoadAppData = () => {
   useEffect(() => {
     setLoader(true);
     axios(
-      // "https://raw.githubusercontent.com/kamruj-akash/hero.io-app_store/refs/heads/main/public/appData.json"
-      "../appData.json"
+      "https://raw.githubusercontent.com/kamruj-akash/hero.io-app_store/refs/heads/main/public/appData.json"
+      // "../appData.json"
     )
       .then((data) => setAppData(data.data))
       .catch((err) => setError(err))

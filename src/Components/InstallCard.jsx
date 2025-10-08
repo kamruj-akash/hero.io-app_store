@@ -18,7 +18,7 @@ const InstallCard = ({ appData, installedApp, setInstalledApp }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Canceled!",
+          title: "Uninstalled!",
           text: `${title} Has been Uninstalled`,
           icon: "success",
         });
