@@ -18,7 +18,7 @@ import { getDataFromLs, saveDataToLs } from "../utilities/LocalStorage";
 const AppDetails = () => {
   const [appData] = useLoadAppData();
   const { id: paramId } = useParams();
-  const matchedData = appData.find((data) => data.id == paramId);
+  const matchedData = appData?.find((data) => data.id == paramId) || [];
   const {
     id,
     image,
@@ -67,8 +67,8 @@ const AppDetails = () => {
     <Container>
       <div className="py-20 max-w-7xl mx-auto ">
         <div className="flex gap-10 items-centre flex-col  items-center md:flex-row pb-12 border-b-1 border-gray-400">
-          <div className="rounded-tl-4xl rounded-br-4xl min-w-[320px] max-w-[450px] h-[350px] overflow-hidden">
-            <img className="h-full w-full" src={image} alt="img" />
+          <div className="min-w-[320px] max-w-[450px] h-[350px] rounded-xl overflow-hidden bg-white rounded-tl-4xl rounded-br-4xl flex justify-center items-center">
+            <img src={image} alt={title} />
           </div>
           {/* main content */}
           <div className="h-full w-full flex flex-col justify-center items-center md:block ">
@@ -87,7 +87,7 @@ const AppDetails = () => {
                   Downloads
                 </p>
                 <h1 className="text-2xl font-black text-[#001931]">
-                  {downloads}
+                  {downloads}M
                 </h1>
               </div>
               <div>
@@ -105,7 +105,7 @@ const AppDetails = () => {
                   Total Reviews
                 </p>
                 <h1 className="text-2xl font-black text-[#001931]">
-                  {reviews}+
+                  {reviews}K
                 </h1>
               </div>
             </div>

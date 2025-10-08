@@ -4,7 +4,7 @@ import Container from "../Components/Container";
 import InstallCard from "../Components/InstallCard";
 import PageTitle from "../Components/PageTitle";
 import useLoadAppData from "../Hooks/useLoadAppData";
-import { getDataFromLs, removeFromLs } from "../utilities/LocalStorage";
+import { getDataFromLs } from "../utilities/LocalStorage";
 
 const Installation = () => {
   const [appData] = useLoadAppData();
@@ -48,9 +48,8 @@ const Installation = () => {
             <InstallCard
               key={app.id}
               appData={app}
-             
               installedApp={installedApp}
-setInstalledApp={setInstalledApp}
+              setInstalledApp={setInstalledApp}
             />
           ))}
         </div>

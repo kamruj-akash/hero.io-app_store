@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { removeFromLs } from "../utilities/LocalStorage";
 
 const InstallCard = ({ appData, installedApp, setInstalledApp }) => {
-  const { id, title, size, reviews, downloads } = appData || [];
+  const { id, image, title, size, reviews, downloads } = appData || [];
 
   // delete app
   const uninstallationHandler = (id) => {
@@ -33,17 +33,17 @@ const InstallCard = ({ appData, installedApp, setInstalledApp }) => {
     <>
       <div className="flex  items-center justify-between p-5 bg-white rounded-2xl mb-5">
         <div className="flex gap-8 items-center">
-          <div className="w-20 h-20 rounded-xl bg-gray-400">
-            <img src="ims" alt="" />
+          <div className="w-20 h-20 rounded-xl bg-gray-100">
+            <img src={image} alt="" />
           </div>
           <div>
             <h1 className="font-medium text-xl text-[#001931] mb-1">{title}</h1>
             <div className="flex gap-5 items-center">
               <div className="flex gap-1 items-center text-green-500">
-                <FaDownload /> {downloads}
+                <FaDownload /> {downloads}M
               </div>
               <div className="flex gap-1 items-center text-orange-500">
-                <BiStar /> {reviews}
+                <BiStar /> {reviews}K
               </div>
               <h1 className="text-gray-500">{size}MB</h1>
             </div>
