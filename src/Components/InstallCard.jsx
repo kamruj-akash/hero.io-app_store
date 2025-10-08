@@ -1,8 +1,33 @@
 import { BiStar } from "react-icons/bi";
 import { FaDownload } from "react-icons/fa6";
+import Swal from "sweetalert2";
+import { removeFromLs } from "../utilities/LocalStorage";
 
-const InstallCard = ({ appData, uninstallationHandler }) => {
+const InstallCard = ({ appData, installedApp, setInstalledApp }) => {
   const { id, title, size, reviews, downloads } = appData || [];
+
+  // delete app
+  const uninstallationHandler = (id) => {
+    Swal.fire({
+      title: "Want Uninstall?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Uninstall!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Canceled!",
+          text: `${title} Has been Uninstalled`,
+          icon: "success",
+        });
+        const filterDelete = installedApp.filter((app) => app.id != id);
+        setInstalledApp(filterDelete);
+        removeFromLs(id);
+      }
+    });
+  };
 
   return (
     <>

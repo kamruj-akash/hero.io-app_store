@@ -15,12 +15,6 @@ const Installation = () => {
     setInstalledApp(filteredData);
   }, [appData]);
 
-  // delete app
-  const uninstallationHandler = (id) => {
-    removeFromLs(id);
-    const filterDelete = installedApp.map((app) => app.id != id);
-    setInstalledApp(filterDelete);
-  };
   return (
     <Container>
       <PageTitle
@@ -54,7 +48,9 @@ const Installation = () => {
             <InstallCard
               key={app.id}
               appData={app}
-              uninstallationHandler={uninstallationHandler}
+             
+              installedApp={installedApp}
+setInstalledApp={setInstalledApp}
             />
           ))}
         </div>
