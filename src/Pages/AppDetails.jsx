@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FaDownload, FaStar } from "react-icons/fa6";
 import { MdReviews } from "react-icons/md";
 import { useParams } from "react-router";
@@ -9,14 +10,17 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import Swal from "sweetalert2";
 import Container from "../Components/Container";
 import useLoadAppData from "../Hooks/useLoadAppData";
+import { getDataFromLs, saveDataToLs } from "../utilities/LocalStorage";
 
 const AppDetails = () => {
   const [appData] = useLoadAppData();
   const { id: paramId } = useParams();
   const matchedData = appData.find((data) => data.id == paramId);
   const {
+    id,
     image,
     title,
     companyName,
@@ -27,6 +31,37 @@ const AppDetails = () => {
     ratingAvg,
     downloads,
   } = matchedData || [];
+
+  // installation apps function
+  const [installed, setInstalled] = useState(false);
+
+  useEffect(() => {
+    const savedData = getDataFromLs();
+    if (savedData.includes(id)) {
+      setInstalled(true);
+    }
+  }, [id]);
+
+  const handleAppInstallation = (appId) => {
+    const savedData = getDataFromLs();
+    if (savedData.includes(id)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${title} already installed!`,
+        footer: '<a href="/installation">See Installed App</a>',
+      });
+    } else {
+      Swal.fire({
+        title: `${title}`,
+        text: "Installed Successful!",
+        icon: "success",
+        draggable: true,
+      });
+      setInstalled(true);
+      saveDataToLs(appId);
+    }
+  };
 
   return (
     <Container>
@@ -75,8 +110,11 @@ const AppDetails = () => {
               </div>
             </div>
 
-            <button className="btn py-7 px-5 btn-ghost bg-green-500 rounded-md text-white font-semibold text-xl">
-              Install Now ({size} MB)
+            <button
+              onClick={() => handleAppInstallation(id)}
+              className="btn py-7 px-5 btn-ghost bg-green-500 rounded-md text-white font-semibold text-xl"
+            >
+              {!installed ? `Install Now (${size} MB)` : "Installed"}
             </button>
           </div>
         </div>

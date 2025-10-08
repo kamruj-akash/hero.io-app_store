@@ -1,9 +1,26 @@
-import { BiStar } from "react-icons/bi";
-import { FaArrowDown, FaDownload } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import { FaArrowDown } from "react-icons/fa6";
 import Container from "../Components/Container";
+import InstallCard from "../Components/InstallCard";
 import PageTitle from "../Components/PageTitle";
+import useLoadAppData from "../Hooks/useLoadAppData";
+import { getDataFromLs, removeFromLs } from "../utilities/LocalStorage";
 
 const Installation = () => {
+  const [appData] = useLoadAppData();
+  const [installedApp, setInstalledApp] = useState([]);
+  useEffect(() => {
+    const storedData = getDataFromLs();
+    const filteredData = appData.filter((data) => storedData.includes(data.id));
+    setInstalledApp(filteredData);
+  }, [appData]);
+
+  // delete app
+  const uninstallationHandler = (id) => {
+    removeFromLs(id);
+    const filterDelete = installedApp.map((app) => app.id != id);
+    setInstalledApp(filterDelete);
+  };
   return (
     <Container>
       <PageTitle
@@ -13,7 +30,7 @@ const Installation = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-5">
           <h1 className="font-semibold text-[#001931] text-2xl">
-            1 Apps Found
+            {installedApp.length} Apps Found
           </h1>
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn m-1">
@@ -33,30 +50,13 @@ const Installation = () => {
           </div>
         </div>
         <div>
-          <div className="flex  items-center justify-between p-5 bg-white rounded-2xl">
-            <div className="flex gap-8 items-center">
-              <div className="w-20 h-20 rounded-xl bg-gray-400">
-                <img src="" alt="" />
-              </div>
-              <div>
-                <h1 className="font-medium text-xl text-[#001931] mb-1">
-                  Forest: Focus for Productivity
-                </h1>
-                <div className="flex gap-5 items-center">
-                  <div className="flex gap-1 items-center text-green-500">
-                    <FaDownload /> 5M
-                  </div>
-                  <div className="flex gap-1 items-center text-orange-500">
-                    <BiStar /> 5
-                  </div>
-                  <h1 className="text-gray-500">250MB</h1>
-                </div>
-              </div>
-            </div>
-            <button className="btn btn-success text-white font-bold">
-              Uninstall
-            </button>
-          </div>
+          {installedApp.map((app) => (
+            <InstallCard
+              key={app.id}
+              appData={app}
+              uninstallationHandler={uninstallationHandler}
+            />
+          ))}
         </div>
       </div>
     </Container>
