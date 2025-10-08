@@ -32,7 +32,7 @@ const AppDetails = () => {
     <Container>
       <div className="py-20 max-w-7xl mx-auto ">
         <div className="flex gap-10 items-centre flex-col  items-center md:flex-row pb-12 border-b-1 border-gray-400">
-          <div className="rounded-tl-4xl rounded-br-4xl w-[450px] h-[350px] overflow-hidden">
+          <div className="rounded-tl-4xl rounded-br-4xl min-w-[320px] max-w-[450px] h-[350px] overflow-hidden">
             <img className="h-full w-full" src={image} alt="img" />
           </div>
           {/* main content */}
