@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "/all-apps", Component: AllApps },
       { path: "/installation", Component: Installation },
-      { path: "/appDetails/:id", Component: AppDetails },
+      { path: "/AppDetails/:id", Component: AppDetails },
       { path: "*", Component: ErrorPage },
     ],
   },
