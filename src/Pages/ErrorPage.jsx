@@ -1,8 +1,8 @@
 import { NavLink } from "react-router";
 import errorImg from "../assets/error-404.png";
-const ErrorComponent = () => {
+const ErrorPage = () => {
   return (
-    <div className="flex flex-col justify-centre items-center py-10">
+    <div className="flex flex-col justify-centre items-center py-10 text-center">
       <img src={errorImg} alt="" />
       <h1 className="text-5xl font-semibold text-[#001931] mt-5 mb-2">
         Oops, page not found!
@@ -20,4 +20,4 @@ const ErrorComponent = () => {
   );
 };
 
-export default ErrorComponent;
+export default ErrorPage;

@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router";
-import ErrorComponent from "../Components/ErrorComponent";
+
 import RootLayout from "../Layouts/RootLayout";
+import AllApps from "../Pages/AllApps";
+import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
+import Installation from "../Pages/Installation";
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +12,9 @@ export const router = createBrowserRouter([
     Component: RootLayout,
     children: [
       { index: true, Component: Home },
-      { path: "*", Component: ErrorComponent },
+      { path: "/all-apps", Component: AllApps },
+      { path: "/installation", Component: Installation },
+      { path: "*", Component: ErrorPage },
     ],
   },
 ]);
