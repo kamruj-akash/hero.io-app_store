@@ -97,7 +97,7 @@ const AppDetails = () => {
                   </h1>
                 </div>
                 <div>
-                  <FaStar className="text-3xl text-green-600" />
+                  <FaStar className="text-3xl text-orange-600" />
                   <p className="text-[16px] font-normal text-[#001931] my-2">
                     Average Ratings
                   </p>
@@ -106,7 +106,7 @@ const AppDetails = () => {
                   </h1>
                 </div>
                 <div>
-                  <MdReviews className="text-3xl text-green-600" />
+                  <MdReviews className="text-3xl text-purple-600" />
                   <p className="text-[16px] font-normal text-[#001931] my-2">
                     Total Reviews
                   </p>

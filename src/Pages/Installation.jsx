@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaArrowDown } from "react-icons/fa6";
 import Container from "../Components/Container";
 import InstallCard from "../Components/InstallCard";
 import Loader from "../Components/Loader";
@@ -18,6 +17,25 @@ const Installation = () => {
     setInstalledApp(filteredData);
   }, [appData]);
 
+  // sorted
+  const [sort, setSort] = useState("none");
+  const sortHandler = () => {
+    if (sort === "size-dsc") {
+      return [...installedApp].sort((a, b) => a.size - b.size);
+    } else if (sort === "size-asc") {
+      return [...installedApp].sort((a, b) => b.size - a.size);
+    } else if (sort === "down-asc") {
+      return [...installedApp].sort((a, b) => b.downloads - a.downloads);
+    } else if (sort === "rev-asc") {
+      return [...installedApp].sort((a, b) => b.reviews - a.reviews);
+    } else {
+      return installedApp;
+    }
+  };
+
+  //   reviews
+  // downloads
+
   return (
     <Container>
       <PageTitle
@@ -29,28 +47,25 @@ const Installation = () => {
           <h1 className="font-semibold text-[#001931] text-2xl">
             {installedApp.length} Apps Found
           </h1>
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn m-1">
-              Sort By Size <FaArrowDown />
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          <div className="border py-2 px-3 rounded-lg border-[#D2D2D2] text-[#4a4a4a]">
+            <select
+              defaultValue={installedApp}
+              onChange={(e) => setSort(e.target.value)}
+              name="sortsOptions"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
+              <option value="none">Sort By</option>
+              <option value="size-asc">Size (High-Low)</option>
+              <option value="size-dsc">Size (Low-High)</option>
+              <option value="down-asc">Most Downloaded</option>
+              <option value="rev-asc">Best Reviewed</option>
+            </select>
           </div>
         </div>
         <div>
           {loader ? (
             <Loader />
           ) : (
-            installedApp.map((app) => (
+            sortHandler().map((app) => (
               <InstallCard
                 key={app.id}
                 appData={app}
