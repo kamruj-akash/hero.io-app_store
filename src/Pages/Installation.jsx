@@ -20,12 +20,12 @@ const Installation = () => {
   // sorted
   const [sort, setSort] = useState("none");
   const sortHandler = (() => {
-    if (sort === "size-dsc") {
-      return [...installedApp].sort((a, b) => a.size - b.size);
-    } else if (sort === "size-asc") {
-      return [...installedApp].sort((a, b) => b.size - a.size);
+    if (sort === "down-dsc") {
+      return [...installedApp].sort((a, b) => a.downloads - b.downloads);
     } else if (sort === "down-asc") {
       return [...installedApp].sort((a, b) => b.downloads - a.downloads);
+    } else if (sort === "size-asc") {
+      return [...installedApp].sort((a, b) => b.size - a.size);
     } else if (sort === "rev-asc") {
       return [...installedApp].sort((a, b) => b.reviews - a.reviews);
     } else {
@@ -54,9 +54,9 @@ const Installation = () => {
               name="sortsOptions"
             >
               <option value="none">Sort By</option>
-              <option value="size-asc">Size (High-Low)</option>
-              <option value="size-dsc">Size (Low-High)</option>
-              <option value="down-asc">Most Downloaded</option>
+              <option value="down-asc">Download (High-Low)</option>
+              <option value="down-dsc">Download (Low-High)</option>
+              <option value="size-asc">Sort By App Size</option>
               <option value="rev-asc">Best Reviewed</option>
             </select>
           </div>
