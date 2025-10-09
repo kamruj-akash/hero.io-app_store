@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png";
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center h-[calc(100vh-250px)]">
+    <div className="flex items-center justify-center h-[calc(100vh-250px)] z-50">
       <div className="flex flex-col items-center space-y-6">
         {/* Animated Logo */}
         <div className="animate-spin ">

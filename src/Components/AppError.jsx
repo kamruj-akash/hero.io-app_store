@@ -1,5 +1,7 @@
+import { NavLink } from "react-router";
 import errorImg from "../assets/App-Error.png";
-const AppError = ({ setSearchTerm }) => {
+
+const AppError = () => {
   return (
     <div className="flex flex-col justify-centre items-center py-15 text-center">
       <img src={errorImg} alt="" />
@@ -10,12 +12,12 @@ const AppError = ({ setSearchTerm }) => {
         The App you are requesting is not found on our system. please try
         another apps
       </p>
-      <button
-        onClick={() => setSearchTerm("")}
+      <NavLink
+        to={"/"}
         className="gradient-btn py-4 px-10 rounded-xl cursor-pointer text-[16px] font-semibold inline-block"
       >
         Go Back
-      </button>
+      </NavLink>
     </div>
   );
 };
