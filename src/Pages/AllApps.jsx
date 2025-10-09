@@ -45,7 +45,7 @@ const AllApps = () => {
                 <h1 className="font-semibold text-2xl text-[#001931]">
                   (<CountUp end={filteredData.length} />) Apps Found
                 </h1>
-                <div className="flex border ps-4 rounded-md border-[#D2D2D2] items-center justify-center min-w-[400px]  text-[#627382]">
+                <div className="flex border ps-4 rounded-md border-[#D2D2D2] items-center justify-center max-w-[400px]  min-w-[300px] text-[#627382]">
                   <FaSearch />
                   <input
                     // onChange={(e) => setSearchTerm(e.target.value)}

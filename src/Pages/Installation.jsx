@@ -49,7 +49,6 @@ const Installation = () => {
           </h1>
           <div className="border py-2 px-3 rounded-lg border-[#D2D2D2] text-[#4a4a4a]">
             <select
-              defaultValue={installedApp}
               onChange={(e) => setSort(e.target.value)}
               name="sortsOptions"
             >

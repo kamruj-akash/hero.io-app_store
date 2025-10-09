@@ -1,5 +1,5 @@
 import { BiStar } from "react-icons/bi";
-import { FaDownload } from "react-icons/fa6";
+import { FaDownload, FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { removeFromLs } from "../utilities/LocalStorage";
 
@@ -32,7 +32,7 @@ const InstallCard = ({ appData, installedApp, setInstalledApp }) => {
   return (
     <>
       <div className="flex  items-center justify-between p-5 bg-white rounded-2xl mb-5">
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-8 items-center ">
           <div className="w-20 h-20 rounded-xl bg-gray-100">
             <img src={image} alt="" />
           </div>
@@ -53,7 +53,10 @@ const InstallCard = ({ appData, installedApp, setInstalledApp }) => {
           onClick={() => uninstallationHandler(id)}
           className="btn btn-success text-white font-bold"
         >
-          Uninstall
+          <span className="hidden md:block">Uninstall</span>
+          <span className=" md:hidden">
+            <FaTrash />
+          </span>
         </button>
       </div>
     </>
