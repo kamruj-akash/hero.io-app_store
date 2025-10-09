@@ -19,7 +19,7 @@ const Installation = () => {
 
   // sorted
   const [sort, setSort] = useState("none");
-  const sortHandler = () => {
+  const sortHandler = (() => {
     if (sort === "size-dsc") {
       return [...installedApp].sort((a, b) => a.size - b.size);
     } else if (sort === "size-asc") {
@@ -31,7 +31,7 @@ const Installation = () => {
     } else {
       return installedApp;
     }
-  };
+  })();
 
   //   reviews
   // downloads
@@ -65,7 +65,7 @@ const Installation = () => {
           {loader ? (
             <Loader />
           ) : (
-            sortHandler().map((app) => (
+            sortHandler.map((app) => (
               <InstallCard
                 key={app.id}
                 appData={app}

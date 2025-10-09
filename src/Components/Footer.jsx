@@ -14,7 +14,7 @@ const Footer = () => {
                 className="flex gap-2 justify-center items-center text-2xl uppercase font-bold  
            text-white"
               >
-                <img className="w-10" src={logo} alt="" /> Hero.io
+                <img className="w-10" src={logo} alt="" /> Appla.io
               </NavLink>
             </div>
             <div>
@@ -35,7 +35,7 @@ const Footer = () => {
           <aside className="text-center">
             <p>
               Copyright © {new Date().getFullYear()} - All right reserved by
-              ACME Industries Ltd
+              <span className="gradient-text"> Appla.io</span>
             </p>
           </aside>
         </Container>

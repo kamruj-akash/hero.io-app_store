@@ -9,17 +9,20 @@ const HomeCount = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-20">
         <CountBox
           title={"Total Downloads"}
-          number={"29.6M"}
+          number={"29.6"}
+          numTitle={"M"}
           status={"21% more than last month"}
         />
         <CountBox
           title={"Total Reviews"}
-          number={"906K"}
+          number={"906"}
+          numTitle={"K"}
           status={"46% more than last month"}
         />
         <CountBox
           title={"Active Apps"}
-          number={"132+"}
+          number={"132"}
+          numTitle={"+"}
           status={"31 more will Launch"}
         />
       </div>

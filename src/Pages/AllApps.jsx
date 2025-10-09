@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CountUp from "react-countup";
 import { FaSearch } from "react-icons/fa";
 import AppCard from "../Components/AppCard";
 import AppError from "../Components/AppError";
@@ -38,7 +39,7 @@ const AllApps = () => {
           {/* all apps & search app */}
           <div className="mb-5 flex flex-col gap-5 justify-between items-center md:flex-row">
             <h1 className="font-semibold text-2xl text-[#001931]">
-              ({filteredData.length}) Apps Found
+              (<CountUp end={filteredData.length} />) Apps Found
             </h1>
             <div className="flex border ps-4 rounded-md border-[#D2D2D2] items-center justify-center min-w-[400px]  text-[#627382]">
               <FaSearch />

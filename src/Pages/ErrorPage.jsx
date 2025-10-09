@@ -1,11 +1,20 @@
+import usePulseText from "@kelsier90/react-pulse-text";
 import { NavLink } from "react-router";
 import errorImg from "../assets/error-404.png";
 const ErrorPage = () => {
+  const { text } = usePulseText({
+    text: " Oops, page not found!",
+    subText: " Oops, page not found!",
+    duration: 1000,
+    iterationCount: 10,
+    iterationDelay: 2500,
+  });
+
   return (
     <div className="flex flex-col justify-centre items-center py-10 text-center">
       <img src={errorImg} alt="" />
       <h1 className="text-5xl font-semibold text-[#001931] mt-5 mb-2">
-        Oops, page not found!
+        {text}
       </h1>
       <p className="text-xl text-[#627382] font-normal mb-8">
         The page you are looking for is not available.

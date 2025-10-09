@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 import { FaDownload, FaStar } from "react-icons/fa6";
 import { MdReviews } from "react-icons/md";
 import { useParams } from "react-router";
@@ -93,7 +94,7 @@ const AppDetails = () => {
                     Downloads
                   </p>
                   <h1 className="text-2xl font-black text-[#001931]">
-                    {downloads}M
+                    <CountUp end={downloads} />M
                   </h1>
                 </div>
                 <div>
@@ -102,6 +103,7 @@ const AppDetails = () => {
                     Average Ratings
                   </p>
                   <h1 className="text-2xl font-black text-[#001931]">
+                    {/* <CountUp end={ratingAvg} />*/}
                     {ratingAvg}
                   </h1>
                 </div>
@@ -111,7 +113,7 @@ const AppDetails = () => {
                     Total Reviews
                   </p>
                   <h1 className="text-2xl font-black text-[#001931]">
-                    {reviews}K
+                    <CountUp end={reviews} />K
                   </h1>
                 </div>
               </div>

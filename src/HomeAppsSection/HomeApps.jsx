@@ -7,7 +7,9 @@ import useLoadAppData from "../Hooks/useLoadAppData";
 
 const HomeApps = () => {
   const [appData, loading] = useLoadAppData();
-  const sliceAppData = appData.slice(0, 8);
+  const topApps = appData.sort((a, b) => b.downloads - a.downloads);
+
+  const sliceAppData = topApps.slice(0, 8);
 
   return (
     <Container>

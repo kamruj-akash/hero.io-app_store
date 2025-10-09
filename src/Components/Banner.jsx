@@ -11,33 +11,37 @@ const Banner = () => {
         <span className="gradient-text font-black">Productive</span> Apps
       </h1>
       <p className="max-w-[1000px] text-center pt-4 pb-8">
-        At HERO.IO, we craft innovative apps designed to make everyday life
+        at Appla.io, we craft innovative apps designed to make everyday life
         simpler, smarter, and more exciting.Our goal is to turn your ideas into
         digital experiences that truly make an impact.
       </p>
 
-      <div className="flex space-x-4 mb-10">
+      <div className="flex flex-wrap justify-center gap-4 mb-10">
+        {/* App Store Button */}
         <a
           href="https://www.apple.com/app-store/"
           target="_blank"
-          className="flex items-center space-x-2 border rounded-lg px-4 py-2 hover:bg-gray-100 transition"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 border border-gray-300 rounded-xl px-5 py-3 bg-white hover:shadow-lg hover:border-gray-400 hover:scale-105 transition-all duration-300"
         >
-          <img className="w-10" src={appStore} alt="store-icon" />
-          <div className="text-left">
-            <p className="text-xs">Download on</p>
-            <p className="text-sm font-semibold">App Store</p>
+          <img className="w-8 h-8" src={appStore} alt="App Store" />
+          <div className="text-left leading-tight">
+            <p className="text-xs text-gray-500">Download on</p>
+            <p className="text-base font-semibold text-black">App Store</p>
           </div>
         </a>
 
+        {/* Play Store Button */}
         <a
           href="https://play.google.com/store"
           target="_blank"
-          className="flex items-center space-x-2 border rounded-lg px-4 py-2 hover:bg-gray-100 transition"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 border border-gray-300 rounded-xl px-5 py-3 bg-white hover:shadow-lg hover:border-gray-400 hover:scale-105 transition-all duration-300"
         >
-          <img className="w-10" src={playStore} alt="store-icon" />
-          <div className="text-left">
-            <p className="text-xs">Get it on</p>
-            <p className="text-sm font-semibold">Play Store</p>
+          <img className="w-8 h-8" src={playStore} alt="Play Store" />
+          <div className="text-left leading-tight">
+            <p className="text-xs text-gray-500">Get it on</p>
+            <p className="text-base font-semibold text-black">Play Store</p>
           </div>
         </a>
       </div>

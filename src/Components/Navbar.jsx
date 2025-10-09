@@ -13,7 +13,7 @@ const Navbar = () => {
               className="flex gap-2 justify-center items-center text-2xl uppercase font-bold  
            gradient-text"
             >
-              <img className="w-10" src={logo} alt="" /> Hero.io
+              <img className="w-10" src={logo} alt="" /> Appla.io
             </NavLink>
           </div>
           <div className="col-span-3 mt-5 md:mt-0 justify-center order-3 flex gap-5 text-[16px] font-medium text-black md:order-2 md:col-span-1 ">
@@ -44,7 +44,7 @@ const Navbar = () => {
           </div>
           <div className=" md:order-3 md:col-span-1 col-span-1 flex justify-end">
             <a
-              href="https://github.com/kamruj-akash/"
+              href="https://github.com/kamruj-akash/hero.io-app_store"
               target="blank"
               className="btn gradient-btn"
             >
